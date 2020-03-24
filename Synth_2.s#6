@@ -8042,6 +8042,25 @@ Grid 2.54 mm&lt;p&gt;
 <text x="-5.334" y="1.778" size="1.27" layer="25">&gt;NAME</text>
 <text x="-5.334" y="-3.048" size="1.27" layer="27">&gt;VALUE</text>
 </package>
+<package name="3POL254" urn="urn:adsk.eagle:footprint:9306/1" library_version="2">
+<description>&lt;b&gt;PHOENIX CONNECTOR&lt;/b&gt;</description>
+<wire x1="-3.94" y1="-1.45" x2="3.94" y2="-1.45" width="0.254" layer="21"/>
+<wire x1="3.94" y1="-1.45" x2="3.94" y2="1.45" width="0.254" layer="21"/>
+<wire x1="3.94" y1="1.45" x2="-3.94" y2="1.45" width="0.254" layer="21"/>
+<wire x1="-3.94" y1="1.45" x2="-3.94" y2="-1.45" width="0.254" layer="21"/>
+<wire x1="-3.83" y1="1.1" x2="3.83" y2="1.1" width="0.1524" layer="21"/>
+<wire x1="-3.175" y1="-0.508" x2="-2.032" y2="0.635" width="0.1524" layer="51"/>
+<wire x1="-0.762" y1="-0.254" x2="0.762" y2="0.127" width="0.1524" layer="51"/>
+<wire x1="2.032" y1="0.635" x2="3.048" y2="-0.635" width="0.1524" layer="51"/>
+<circle x="-2.54" y="0" radius="0.889" width="0.1524" layer="51"/>
+<circle x="0" y="0" radius="0.889" width="0.1524" layer="51"/>
+<circle x="2.54" y="0" radius="0.889" width="0.1524" layer="51"/>
+<pad name="1" x="-2.54" y="0" drill="1.2" shape="long" rot="R90"/>
+<pad name="2" x="0" y="0" drill="1.2" shape="long" rot="R90"/>
+<pad name="3" x="2.54" y="0" drill="1.2" shape="long" rot="R90"/>
+<text x="-4.064" y="1.778" size="1.27" layer="25">&gt;NAME</text>
+<text x="-4.064" y="-3.048" size="1.27" layer="27">&gt;VALUE</text>
+</package>
 </packages>
 <packages3d>
 <package3d name="2POL254" urn="urn:adsk.eagle:package:9320/1" type="box" library_version="2">
@@ -8054,6 +8073,12 @@ Grid 2.54 mm&lt;p&gt;
 <description>PHOENIX CONNECTOR</description>
 <packageinstances>
 <packageinstance name="4POL254"/>
+</packageinstances>
+</package3d>
+<package3d name="3POL254" urn="urn:adsk.eagle:package:9316/1" type="box" library_version="2">
+<description>PHOENIX CONNECTOR</description>
+<packageinstances>
+<packageinstance name="3POL254"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -8126,6 +8151,35 @@ Grid 2.54 mm&lt;p&gt;
 <attribute name="OC_FARNELL" value="unknown" constant="no"/>
 <attribute name="OC_NEWARK" value="unknown" constant="no"/>
 <attribute name="POPULARITY" value="5" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MPT3" urn="urn:adsk.eagle:component:9324/2" prefix="X" uservalue="yes" library_version="2">
+<description>&lt;b&gt;PHOENIX CONNECTOR&lt;/b&gt;</description>
+<gates>
+<gate name="-1" symbol="SKB" x="0" y="5.08" addlevel="always"/>
+<gate name="-2" symbol="SKB" x="0" y="0" addlevel="always"/>
+<gate name="-3" symbol="SKBV" x="0" y="-5.08" addlevel="always"/>
+</gates>
+<devices>
+<device name="" package="3POL254">
+<connects>
+<connect gate="-1" pin="1" pad="1"/>
+<connect gate="-2" pin="1" pad="2"/>
+<connect gate="-3" pin="1" pad="3"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:9316/1"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="unknown" constant="no"/>
+<attribute name="POPULARITY" value="3" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -11324,12 +11378,13 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 </class>
 </classes>
 <groups>
-<schematic_group name="OSCILLATOR" style="longdash"/>
 <schematic_group name="WAVE_SELECT"/>
 <schematic_group name="FILTER_CUTOFF" grouprefs="FILTER"/>
 <schematic_group name="FILTER"/>
 <schematic_group name="FILTER_SWITCH"/>
+<schematic_group name="PSOC_CURRENT_DAC" grouprefs="VCA"/>
 <schematic_group name="VCA"/>
+<schematic_group name="OSCILLATOR"/>
 </groups>
 <parts>
 <part name="IC1" library="maxim" library_urn="urn:adsk.eagle:library:269" deviceset="DG409DJ" device="" package3d_urn="urn:adsk.eagle:package:922/2"/>
@@ -11369,7 +11424,6 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 </spice>
 <attribute name="SPICEPREFIX" value="1.5K"/>
 </part>
-<part name="PSOC_LOGIC" library="con-phoenix-254" library_urn="urn:adsk.eagle:library:172" deviceset="MPT2" device="" package3d_urn="urn:adsk.eagle:package:9320/1"/>
 <part name="PSOC_DC" library="con-phoenix-254" library_urn="urn:adsk.eagle:library:172" deviceset="MPT2" device="" package3d_urn="urn:adsk.eagle:package:9320/1"/>
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-024X044" package3d_urn="urn:adsk.eagle:package:23630/1">
 <spice>
@@ -11398,7 +11452,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinmap gate="G$1" pin="2" pinorder="2"/>
 </pinmapping>
 </spice>
-<attribute name="SPICEPREFIX" value="10K"/>
+<attribute name="SPICEPREFIX" value="1K"/>
 </part>
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-024X044" package3d_urn="urn:adsk.eagle:package:23630/1">
 <spice>
@@ -11407,7 +11461,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinmap gate="G$1" pin="2" pinorder="2"/>
 </pinmapping>
 </spice>
-<attribute name="SPICEPREFIX" value="1nF"/>
+<attribute name="SPICEPREFIX" value="10nF"/>
 </part>
 <part name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2">
 <spice>
@@ -11772,6 +11826,8 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 </spice>
 <attribute name="SPICEPREFIX" value="8K"/>
 </part>
+<part name="PSOC_IDAC" library="con-phoenix-254" library_urn="urn:adsk.eagle:library:172" deviceset="MPT2" device="" package3d_urn="urn:adsk.eagle:package:9320/1"/>
+<part name="PSOC_LOGIC" library="con-phoenix-254" library_urn="urn:adsk.eagle:library:172" deviceset="MPT3" device="" package3d_urn="urn:adsk.eagle:package:9316/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -11802,19 +11858,12 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <attribute name="VALUE" x="21.59" y="77.978" size="1.778" layer="96"/>
 <attribute name="SPICEPREFIX" x="27.94" y="81.28" size="1.778" layer="96"/>
 </instance>
-<instance part="PSOC_LOGIC" gate="-1" x="12.7" y="58.42" smashed="yes" rot="R180">
-<attribute name="NAME" x="9.144" y="59.055" size="1.778" layer="95" rot="R180"/>
+<instance part="PSOC_DC" gate="-1" x="0" y="86.36" smashed="yes" rot="R180">
+<attribute name="NAME" x="-3.556" y="86.995" size="1.778" layer="95" rot="R180"/>
 </instance>
-<instance part="PSOC_LOGIC" gate="-2" x="12.7" y="60.96" smashed="yes" rot="R180">
-<attribute name="NAME" x="9.144" y="61.595" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="13.716" y="64.262" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="PSOC_DC" gate="-1" x="10.16" y="86.36" smashed="yes" rot="R180">
-<attribute name="NAME" x="6.604" y="86.995" size="1.778" layer="95" rot="R180"/>
-</instance>
-<instance part="PSOC_DC" gate="-2" x="10.16" y="124.46" smashed="yes" rot="R180">
-<attribute name="NAME" x="11.684" y="120.015" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="11.176" y="127.762" size="1.778" layer="96" rot="R180"/>
+<instance part="PSOC_DC" gate="-2" x="0" y="124.46" smashed="yes" rot="R180">
+<attribute name="NAME" x="1.524" y="120.015" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="1.016" y="127.762" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="C1" gate="G$1" x="73.66" y="99.06" smashed="yes" rot="R90" grouprefs="OSCILLATOR">
 <attribute name="NAME" x="79.756" y="103.759" size="1.778" layer="95" rot="R180"/>
@@ -11916,15 +11965,15 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <attribute name="SPICEPREFIX" x="200.66" y="96.52" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="LM293" gate="G$1" x="215.9" y="78.74" smashed="yes" grouprefs="OSCILLATOR"/>
-<instance part="R16" gate="G$1" x="236.22" y="78.74" smashed="yes" grouprefs="OSCILLATOR">
-<attribute name="NAME" x="234.95" y="80.2386" size="1.778" layer="95"/>
-<attribute name="VALUE" x="232.41" y="75.438" size="1.778" layer="96"/>
-<attribute name="SPICEPREFIX" x="233.68" y="76.2" size="1.778" layer="96"/>
+<instance part="R16" gate="G$1" x="233.68" y="78.74" smashed="yes" grouprefs="OSCILLATOR">
+<attribute name="NAME" x="232.41" y="80.2386" size="1.778" layer="95"/>
+<attribute name="VALUE" x="229.87" y="75.438" size="1.778" layer="96"/>
+<attribute name="SPICEPREFIX" x="231.14" y="76.2" size="1.778" layer="96"/>
 </instance>
-<instance part="R17" gate="G$1" x="243.84" y="71.12" smashed="yes" rot="R90" grouprefs="OSCILLATOR">
-<attribute name="NAME" x="242.3414" y="69.85" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="247.142" y="67.31" size="1.778" layer="96" rot="R90"/>
-<attribute name="SPICEPREFIX" x="246.38" y="68.58" size="1.778" layer="96" rot="R90"/>
+<instance part="R17" gate="G$1" x="243.84" y="43.18" smashed="yes" rot="R90" grouprefs="OSCILLATOR">
+<attribute name="NAME" x="242.3414" y="41.91" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="247.142" y="39.37" size="1.778" layer="96" rot="R90"/>
+<attribute name="SPICEPREFIX" x="246.38" y="40.64" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="U$3" gate="G$1" x="254" y="81.28" smashed="yes" rot="MR180" grouprefs="OSCILLATOR"/>
 <instance part="IC2" gate="G$1" x="314.96" y="101.6" smashed="yes">
@@ -12073,10 +12122,10 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <attribute name="VALUE" x="488.95" y="85.598" size="1.778" layer="96"/>
 <attribute name="SPICEPREFIX" x="490.22" y="86.36" size="1.778" layer="96"/>
 </instance>
-<instance part="GLOBAL_FILTER_CUTOFF" gate="-1" x="487.68" y="-17.78" smashed="yes" rot="R270" grouprefs="FILTER_CUTOFF FILTER">
+<instance part="GLOBAL_FILTER_CUTOFF" gate="-1" x="487.68" y="-17.78" smashed="yes" rot="R270" grouprefs="FILTER FILTER_CUTOFF">
 <attribute name="NAME" x="487.045" y="-21.336" size="1.778" layer="95" rot="R270"/>
 </instance>
-<instance part="GLOBAL_FILTER_CUTOFF" gate="-2" x="482.6" y="-17.78" smashed="yes" rot="R270" grouprefs="FILTER_CUTOFF FILTER">
+<instance part="GLOBAL_FILTER_CUTOFF" gate="-2" x="482.6" y="-17.78" smashed="yes" rot="R270" grouprefs="FILTER FILTER_CUTOFF">
 <attribute name="NAME" x="481.965" y="-21.336" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="479.298" y="-16.764" size="1.778" layer="96" rot="R270"/>
 </instance>
@@ -12143,6 +12192,23 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <attribute name="VALUE" x="694.182" y="34.29" size="1.778" layer="96" rot="R90"/>
 <attribute name="SPICEPREFIX" x="693.42" y="35.56" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="PSOC_IDAC" gate="-1" x="723.9" y="-17.78" smashed="yes" rot="R270" grouprefs="PSOC_CURRENT_DAC VCA">
+<attribute name="NAME" x="723.265" y="-21.336" size="1.778" layer="95" rot="R270"/>
+</instance>
+<instance part="PSOC_IDAC" gate="-2" x="721.36" y="-17.78" smashed="yes" rot="R270" grouprefs="PSOC_CURRENT_DAC VCA">
+<attribute name="NAME" x="720.725" y="-21.336" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="718.058" y="-16.764" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="PSOC_LOGIC" gate="-1" x="0" y="53.34" smashed="yes" rot="R180">
+<attribute name="NAME" x="-3.556" y="53.975" size="1.778" layer="95" rot="R180"/>
+</instance>
+<instance part="PSOC_LOGIC" gate="-2" x="0" y="58.42" smashed="yes" rot="R180">
+<attribute name="NAME" x="-3.556" y="59.055" size="1.778" layer="95" rot="R180"/>
+</instance>
+<instance part="PSOC_LOGIC" gate="-3" x="0" y="63.5" smashed="yes" rot="R180">
+<attribute name="NAME" x="-3.556" y="64.135" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="1.016" y="66.802" size="1.778" layer="96" rot="R180"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -12181,25 +12247,24 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <wire x1="20.32" y1="88.9" x2="17.78" y2="88.9" width="0.1524" layer="91"/>
 <pinref part="R4" gate="G$1" pin="1"/>
 <wire x1="17.78" y1="88.9" x2="17.78" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="86.36" x2="17.78" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="86.36" x2="17.78" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="83.82" x2="17.78" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="81.28" x2="20.32" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="86.36" x2="12.7" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="86.36" x2="2.54" y2="86.36" width="0.1524" layer="91"/>
 <junction x="17.78" y="86.36"/>
 <pinref part="PSOC_DC" gate="-1" pin="1"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="IC1" gate="G$1" pin="A0"/>
-<wire x1="33.02" y1="60.96" x2="15.24" y2="60.96" width="0.1524" layer="91"/>
-<pinref part="PSOC_LOGIC" gate="-2" pin="1"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="20.32" y1="86.36" x2="17.78" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="20.32" y1="83.82" x2="17.78" y2="83.82" width="0.1524" layer="91"/>
+<junction x="17.78" y="83.82"/>
 </segment>
 </net>
 <net name="N$7" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="A1"/>
-<wire x1="33.02" y1="58.42" x2="15.24" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="PSOC_LOGIC" gate="-1" pin="1"/>
+<wire x1="33.02" y1="58.42" x2="2.54" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="PSOC_LOGIC" gate="-2" pin="1"/>
 </segment>
 </net>
 <net name="TL074" class="0">
@@ -12237,27 +12302,27 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 </net>
 <net name="-15V_PS" class="0">
 <segment>
-<wire x1="2.54" y1="2.54" x2="63.5" y2="2.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<label x="746.76" y="5.08" size="1.778" layer="95"/>
+<wire x1="2.54" y1="2.54" x2="63.5" y2="2.54" width="0.1524" layer="91"/>
+<label x="746.76" y="5.08" size="1.778" layer="95" grouprefs="VCA"/>
 <pinref part="IC1" gate="G$1" pin="V-"/>
-<wire x1="63.5" y1="2.54" x2="83.82" y2="2.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<wire x1="83.82" y1="2.54" x2="218.44" y2="2.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<wire x1="63.5" y1="2.54" x2="83.82" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="2.54" x2="218.44" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="58.42" x2="63.5" y2="58.42" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <wire x1="63.5" y1="58.42" x2="63.5" y2="2.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="63.5" y="2.54" grouprefs="OSCILLATOR"/>
+<junction x="63.5" y="2.54"/>
 <wire x1="73.66" y1="91.44" x2="83.82" y2="91.44" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <wire x1="83.82" y1="91.44" x2="83.82" y2="2.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="83.82" y="2.54" grouprefs="OSCILLATOR"/>
+<junction x="83.82" y="2.54"/>
 <pinref part="U$1" gate="G$1" pin="VCC-"/>
 <pinref part="X1" gate="-1" pin="1"/>
 <wire x1="218.44" y1="73.66" x2="218.44" y2="2.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="218.44" y="2.54" grouprefs="OSCILLATOR"/>
+<junction x="218.44" y="2.54"/>
 <pinref part="LM293" gate="G$1" pin="GND"/>
-<wire x1="218.44" y1="2.54" x2="266.7" y2="2.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<wire x1="218.44" y1="2.54" x2="266.7" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="U$3" gate="G$1" pin="VCC-"/>
 <wire x1="256.54" y1="86.36" x2="266.7" y2="86.36" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <wire x1="266.7" y1="86.36" x2="266.7" y2="2.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="266.7" y="2.54" grouprefs="OSCILLATOR"/>
+<junction x="266.7" y="2.54"/>
 <wire x1="266.7" y1="2.54" x2="332.74" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="V-"/>
 <wire x1="332.74" y1="2.54" x2="337.82" y2="2.54" width="0.1524" layer="91"/>
@@ -12286,51 +12351,51 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <junction x="513.08" y="2.54" grouprefs="FILTER"/>
 <wire x1="513.08" y1="2.54" x2="614.68" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="V-"/>
-<wire x1="614.68" y1="2.54" x2="718.82" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="718.82" y1="2.54" x2="756.92" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="614.68" y1="2.54" x2="718.82" y2="2.54" width="0.1524" layer="91" grouprefs="VCA"/>
+<wire x1="718.82" y1="2.54" x2="756.92" y2="2.54" width="0.1524" layer="91" grouprefs="VCA"/>
 <wire x1="607.06" y1="91.44" x2="614.68" y2="91.44" width="0.1524" layer="91"/>
 <wire x1="614.68" y1="91.44" x2="614.68" y2="2.54" width="0.1524" layer="91"/>
 <junction x="614.68" y="2.54"/>
 <pinref part="U$7" gate="G$1" pin="-V"/>
 <wire x1="716.28" y1="73.66" x2="718.82" y2="73.66" width="0.1524" layer="91" grouprefs="VCA"/>
 <wire x1="718.82" y1="73.66" x2="718.82" y2="2.54" width="0.1524" layer="91" grouprefs="VCA"/>
-<junction x="718.82" y="2.54"/>
+<junction x="718.82" y="2.54" grouprefs="VCA"/>
 </segment>
 </net>
 <net name="GND_PS" class="0">
 <segment>
 <wire x1="2.54" y1="7.62" x2="58.42" y2="7.62" width="0.1524" layer="91"/>
-<label x="746.76" y="10.16" size="1.778" layer="95"/>
+<label x="746.76" y="10.16" size="1.778" layer="95" grouprefs="VCA"/>
 <wire x1="58.42" y1="7.62" x2="66.04" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="66.04" y1="7.62" x2="93.98" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<wire x1="66.04" y1="7.62" x2="93.98" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="83.82" x2="66.04" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="66.04" y="7.62" grouprefs="OSCILLATOR"/>
+<junction x="66.04" y="7.62"/>
 <pinref part="U$1" gate="G$1" pin="+IN_1"/>
 <pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="86.36" y1="124.46" x2="93.98" y2="124.46" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <wire x1="93.98" y1="124.46" x2="93.98" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<wire x1="93.98" y1="7.62" x2="116.84" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="93.98" y="7.62" grouprefs="OSCILLATOR"/>
+<wire x1="93.98" y1="7.62" x2="116.84" y2="7.62" width="0.1524" layer="91"/>
+<junction x="93.98" y="7.62"/>
 <pinref part="X1" gate="-2" pin="1"/>
 <pinref part="U$1" gate="G$2" pin="+IN_2"/>
 <wire x1="116.84" y1="88.9" x2="116.84" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="116.84" y="7.62" grouprefs="OSCILLATOR"/>
-<wire x1="116.84" y1="7.62" x2="154.94" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<junction x="116.84" y="7.62"/>
+<wire x1="116.84" y1="7.62" x2="154.94" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$3" pin="+IN_3"/>
-<wire x1="154.94" y1="7.62" x2="190.5" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<wire x1="154.94" y1="7.62" x2="190.5" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="63.5" x2="154.94" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="154.94" y="7.62" grouprefs="OSCILLATOR"/>
+<junction x="154.94" y="7.62"/>
 <pinref part="U$1" gate="G$4" pin="+IN_4"/>
 <wire x1="190.5" y1="78.74" x2="190.5" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<wire x1="190.5" y1="7.62" x2="210.82" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="190.5" y="7.62" grouprefs="OSCILLATOR"/>
+<wire x1="190.5" y1="7.62" x2="210.82" y2="7.62" width="0.1524" layer="91"/>
+<junction x="190.5" y="7.62"/>
 <wire x1="210.82" y1="76.2" x2="210.82" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="210.82" y="7.62" grouprefs="OSCILLATOR"/>
+<junction x="210.82" y="7.62"/>
 <pinref part="LM293" gate="G$1" pin="-IN_1"/>
-<wire x1="210.82" y1="7.62" x2="243.84" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<wire x1="210.82" y1="7.62" x2="243.84" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="R17" gate="G$1" pin="1"/>
-<wire x1="243.84" y1="66.04" x2="243.84" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="243.84" y="7.62" grouprefs="OSCILLATOR"/>
+<wire x1="243.84" y1="38.1" x2="243.84" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<junction x="243.84" y="7.62"/>
 <wire x1="243.84" y1="7.62" x2="327.66" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="GND"/>
 <wire x1="327.66" y1="7.62" x2="342.9" y2="7.62" width="0.1524" layer="91" grouprefs="FILTER"/>
@@ -12372,7 +12437,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <wire x1="533.4" y1="27.94" x2="533.4" y2="7.62" width="0.1524" layer="91" grouprefs="FILTER"/>
 <junction x="533.4" y="7.62" grouprefs="FILTER"/>
 <pinref part="IC1" gate="G$1" pin="GND"/>
-<wire x1="58.42" y1="53.34" x2="58.42" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="53.34" x2="58.42" y2="7.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <junction x="58.42" y="7.62"/>
 <pinref part="R30" gate="G$1" pin="1"/>
 <wire x1="487.68" y1="116.84" x2="477.52" y2="116.84" width="0.1524" layer="91" grouprefs="FILTER"/>
@@ -12380,10 +12445,11 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <junction x="477.52" y="7.62" grouprefs="FILTER"/>
 <wire x1="533.4" y1="7.62" x2="607.06" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="GND"/>
-<wire x1="607.06" y1="7.62" x2="622.3" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="622.3" y1="7.62" x2="673.1" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="673.1" y1="7.62" x2="683.26" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="683.26" y1="7.62" x2="756.92" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="607.06" y1="7.62" x2="622.3" y2="7.62" width="0.1524" layer="91" grouprefs="VCA"/>
+<wire x1="622.3" y1="7.62" x2="673.1" y2="7.62" width="0.1524" layer="91" grouprefs="VCA"/>
+<wire x1="673.1" y1="7.62" x2="683.26" y2="7.62" width="0.1524" layer="91" grouprefs="VCA"/>
+<wire x1="683.26" y1="7.62" x2="721.36" y2="7.62" width="0.1524" layer="91" grouprefs="VCA"/>
+<wire x1="721.36" y1="7.62" x2="756.92" y2="7.62" width="0.1524" layer="91" grouprefs="VCA"/>
 <wire x1="607.06" y1="86.36" x2="607.06" y2="7.62" width="0.1524" layer="91"/>
 <junction x="607.06" y="7.62"/>
 <pinref part="GLOBAL_FILTER_CUTOFF" gate="-2" pin="1"/>
@@ -12391,40 +12457,43 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <junction x="482.6" y="7.62"/>
 <pinref part="VCA_TRIM" gate="G$1" pin="S"/>
 <wire x1="627.38" y1="91.44" x2="622.3" y2="91.44" width="0.1524" layer="91" grouprefs="VCA"/>
-<wire x1="622.3" y1="91.44" x2="622.3" y2="7.62" width="0.1524" layer="91"/>
-<junction x="622.3" y="7.62"/>
+<wire x1="622.3" y1="91.44" x2="622.3" y2="7.62" width="0.1524" layer="91" grouprefs="VCA"/>
+<junction x="622.3" y="7.62" grouprefs="VCA"/>
 <pinref part="R38" gate="G$1" pin="1"/>
 <wire x1="673.1" y1="91.44" x2="673.1" y2="7.62" width="0.1524" layer="91" grouprefs="VCA"/>
-<junction x="673.1" y="7.62"/>
+<junction x="673.1" y="7.62" grouprefs="VCA"/>
 <pinref part="VCA_TRIM1" gate="G$1" pin="S"/>
 <wire x1="685.8" y1="63.5" x2="683.26" y2="63.5" width="0.1524" layer="91" grouprefs="VCA"/>
 <wire x1="683.26" y1="63.5" x2="683.26" y2="7.62" width="0.1524" layer="91" grouprefs="VCA"/>
-<junction x="683.26" y="7.62"/>
+<junction x="683.26" y="7.62" grouprefs="VCA"/>
+<pinref part="PSOC_IDAC" gate="-2" pin="1"/>
+<wire x1="721.36" y1="-15.24" x2="721.36" y2="7.62" width="0.1524" layer="91" grouprefs="VCA"/>
+<junction x="721.36" y="7.62" grouprefs="VCA"/>
 </segment>
 </net>
 <net name="+15V_PS" class="0">
 <segment>
-<wire x1="2.54" y1="129.54" x2="60.96" y2="129.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<label x="749.3" y="132.08" size="1.778" layer="95"/>
+<wire x1="2.54" y1="129.54" x2="60.96" y2="129.54" width="0.1524" layer="91"/>
+<label x="749.3" y="132.08" size="1.778" layer="95" grouprefs="VCA"/>
 <pinref part="IC1" gate="G$1" pin="V+"/>
-<wire x1="60.96" y1="129.54" x2="88.9" y2="129.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<wire x1="88.9" y1="129.54" x2="218.44" y2="129.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<wire x1="60.96" y1="129.54" x2="88.9" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="129.54" x2="218.44" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="58.42" y1="63.5" x2="60.96" y2="63.5" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <wire x1="60.96" y1="63.5" x2="60.96" y2="129.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="60.96" y="129.54" grouprefs="OSCILLATOR"/>
+<junction x="60.96" y="129.54"/>
 <wire x1="73.66" y1="81.28" x2="88.9" y2="81.28" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <wire x1="88.9" y1="81.28" x2="88.9" y2="129.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="88.9" y="129.54" grouprefs="OSCILLATOR"/>
+<junction x="88.9" y="129.54"/>
 <pinref part="U$1" gate="G$1" pin="VCC+"/>
 <pinref part="X1" gate="-4" pin="1"/>
 <wire x1="218.44" y1="83.82" x2="218.44" y2="129.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="218.44" y="129.54" grouprefs="OSCILLATOR"/>
+<junction x="218.44" y="129.54"/>
 <pinref part="LM293" gate="G$1" pin="VCC"/>
-<wire x1="218.44" y1="129.54" x2="269.24" y2="129.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<wire x1="218.44" y1="129.54" x2="269.24" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="U$3" gate="G$1" pin="VCC+"/>
 <wire x1="256.54" y1="76.2" x2="269.24" y2="76.2" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <wire x1="269.24" y1="76.2" x2="269.24" y2="129.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="269.24" y="129.54" grouprefs="OSCILLATOR"/>
+<junction x="269.24" y="129.54"/>
 <wire x1="269.24" y1="129.54" x2="332.74" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="V+"/>
 <wire x1="332.74" y1="129.54" x2="353.06" y2="129.54" width="0.1524" layer="91" grouprefs="FILTER"/>
@@ -12460,25 +12529,25 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <junction x="515.62" y="129.54" grouprefs="FILTER"/>
 <wire x1="515.62" y1="129.54" x2="612.14" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="V+"/>
-<wire x1="612.14" y1="129.54" x2="637.54" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="637.54" y1="129.54" x2="718.82" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="718.82" y1="129.54" x2="723.9" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="723.9" y1="129.54" x2="759.46" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="612.14" y1="129.54" x2="637.54" y2="129.54" width="0.1524" layer="91" grouprefs="VCA"/>
+<wire x1="637.54" y1="129.54" x2="718.82" y2="129.54" width="0.1524" layer="91" grouprefs="VCA"/>
+<wire x1="718.82" y1="129.54" x2="723.9" y2="129.54" width="0.1524" layer="91" grouprefs="VCA"/>
+<wire x1="723.9" y1="129.54" x2="759.46" y2="129.54" width="0.1524" layer="91" grouprefs="VCA"/>
 <wire x1="607.06" y1="96.52" x2="612.14" y2="96.52" width="0.1524" layer="91"/>
 <wire x1="612.14" y1="96.52" x2="612.14" y2="129.54" width="0.1524" layer="91"/>
 <junction x="612.14" y="129.54"/>
 <pinref part="R36" gate="G$1" pin="2"/>
 <wire x1="637.54" y1="121.92" x2="637.54" y2="129.54" width="0.1524" layer="91" grouprefs="VCA"/>
-<junction x="637.54" y="129.54"/>
+<junction x="637.54" y="129.54" grouprefs="VCA"/>
 <pinref part="U$7" gate="G$1" pin="+V"/>
 <wire x1="716.28" y1="63.5" x2="713.74" y2="63.5" width="0.1524" layer="91" grouprefs="VCA"/>
 <wire x1="713.74" y1="63.5" x2="713.74" y2="99.06" width="0.1524" layer="91" grouprefs="VCA"/>
 <wire x1="713.74" y1="99.06" x2="718.82" y2="99.06" width="0.1524" layer="91" grouprefs="VCA"/>
 <wire x1="718.82" y1="99.06" x2="718.82" y2="129.54" width="0.1524" layer="91" grouprefs="VCA"/>
-<junction x="718.82" y="129.54"/>
+<junction x="718.82" y="129.54" grouprefs="VCA"/>
 <pinref part="R39" gate="G$1" pin="2"/>
 <wire x1="723.9" y1="121.92" x2="723.9" y2="129.54" width="0.1524" layer="91" grouprefs="VCA"/>
-<junction x="723.9" y="129.54"/>
+<junction x="723.9" y="129.54" grouprefs="VCA"/>
 </segment>
 </net>
 <net name="N$8" class="0">
@@ -12502,7 +12571,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <net name="PSOC_CLOCK" class="0">
 <segment>
 <pinref part="C2" gate="G$1" pin="1"/>
-<wire x1="63.5" y1="124.46" x2="12.7" y2="124.46" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<wire x1="63.5" y1="124.46" x2="2.54" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="PSOC_DC" gate="-2" pin="1"/>
 <label x="15.24" y="121.92" size="1.778" layer="95"/>
 </segment>
@@ -12528,13 +12597,13 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <wire x1="99.06" y1="93.98" x2="96.52" y2="93.98" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <wire x1="96.52" y1="93.98" x2="96.52" y2="134.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <pinref part="X1" gate="-3" pin="1"/>
-<wire x1="96.52" y1="134.62" x2="2.54" y2="134.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<label x="749.3" y="137.16" size="1.778" layer="95"/>
+<wire x1="96.52" y1="134.62" x2="2.54" y2="134.62" width="0.1524" layer="91"/>
+<label x="749.3" y="137.16" size="1.778" layer="95" grouprefs="VCA"/>
 <pinref part="R14" gate="G$1" pin="1"/>
 <wire x1="157.48" y1="106.68" x2="157.48" y2="134.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<wire x1="157.48" y1="134.62" x2="96.52" y2="134.62" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<junction x="96.52" y="134.62" grouprefs="OSCILLATOR"/>
-<junction x="157.48" y="134.62" grouprefs="OSCILLATOR"/>
+<wire x1="157.48" y1="134.62" x2="96.52" y2="134.62" width="0.1524" layer="91"/>
+<junction x="96.52" y="134.62"/>
+<junction x="157.48" y="134.62"/>
 <wire x1="157.48" y1="134.62" x2="759.46" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -12553,9 +12622,9 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <wire x1="157.48" y1="99.06" x2="139.7" y2="99.06" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <wire x1="139.7" y1="99.06" x2="139.7" y2="91.44" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <junction x="139.7" y="91.44" grouprefs="OSCILLATOR"/>
-<wire x1="137.16" y1="91.44" x2="137.16" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="91.44" x2="137.16" y2="58.42" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <label x="289.56" y="114.3" size="1.778" layer="95"/>
-<wire x1="137.16" y1="58.42" x2="281.94" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="58.42" x2="281.94" y2="58.42" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <wire x1="281.94" y1="58.42" x2="281.94" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="S3A"/>
 <wire x1="281.94" y1="114.3" x2="302.26" y2="114.3" width="0.1524" layer="91"/>
@@ -12633,9 +12702,9 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <junction x="208.28" y="91.44" grouprefs="OSCILLATOR"/>
 <junction x="208.28" y="81.28" grouprefs="OSCILLATOR"/>
 <pinref part="LM293" gate="G$1" pin="+IN_1"/>
-<wire x1="208.28" y1="81.28" x2="208.28" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="81.28" x2="208.28" y2="66.04" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <label x="289.56" y="116.84" size="1.778" layer="95"/>
-<wire x1="208.28" y1="66.04" x2="279.4" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="66.04" x2="279.4" y2="66.04" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <wire x1="279.4" y1="66.04" x2="279.4" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="S2A"/>
 <wire x1="279.4" y1="116.84" x2="302.26" y2="116.84" width="0.1524" layer="91"/>
@@ -12645,8 +12714,8 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <segment>
 <pinref part="LM293" gate="G$1" pin="OUT_1"/>
 <pinref part="R16" gate="G$1" pin="1"/>
-<wire x1="226.06" y1="78.74" x2="231.14" y2="78.74" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<label x="210.82" y="86.36" size="1.778" layer="95"/>
+<wire x1="226.06" y1="78.74" x2="228.6" y2="78.74" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<label x="210.82" y="86.36" size="1.778" layer="95" grouprefs="OSCILLATOR"/>
 </segment>
 </net>
 <net name="N$19" class="0">
@@ -12655,8 +12724,8 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinref part="U$3" gate="G$1" pin="+IN_1"/>
 <wire x1="248.92" y1="78.74" x2="243.84" y2="78.74" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <pinref part="R17" gate="G$1" pin="2"/>
-<wire x1="243.84" y1="78.74" x2="241.3" y2="78.74" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
-<wire x1="243.84" y1="76.2" x2="243.84" y2="78.74" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<wire x1="243.84" y1="78.74" x2="238.76" y2="78.74" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<wire x1="243.84" y1="48.26" x2="243.84" y2="78.74" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <junction x="243.84" y="78.74" grouprefs="OSCILLATOR"/>
 </segment>
 </net>
@@ -12669,8 +12738,8 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinref part="U$3" gate="G$1" pin="OUT_1"/>
 <wire x1="264.16" y1="91.44" x2="264.16" y2="81.28" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <label x="289.56" y="119.38" size="1.778" layer="95"/>
-<wire x1="264.16" y1="81.28" x2="276.86" y2="81.28" width="0.1524" layer="91"/>
-<junction x="264.16" y="81.28"/>
+<wire x1="264.16" y1="81.28" x2="276.86" y2="81.28" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
+<junction x="264.16" y="81.28" grouprefs="OSCILLATOR"/>
 <wire x1="276.86" y1="81.28" x2="276.86" y2="119.38" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="G$1" pin="S1A"/>
 <wire x1="276.86" y1="119.38" x2="302.26" y2="119.38" width="0.1524" layer="91"/>
@@ -13002,8 +13071,8 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinref part="R35" gate="G$1" pin="1"/>
 <wire x1="347.98" y1="78.74" x2="347.98" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="347.98" y1="73.66" x2="335.28" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="335.28" y1="73.66" x2="335.28" y2="-10.16" width="0.1524" layer="91"/>
-<label x="335.28" y="-12.7" size="1.778" layer="95"/>
+<wire x1="335.28" y1="73.66" x2="335.28" y2="-15.24" width="0.1524" layer="91"/>
+<label x="335.28" y="-17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$41" class="0">
@@ -13018,7 +13087,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <segment>
 <pinref part="FILTER_SELECT" gate="-2" pin="1"/>
 <pinref part="IC3" gate="G$1" pin="A0"/>
-<wire x1="576.58" y1="-15.24" x2="576.58" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="576.58" y1="-15.24" x2="576.58" y2="93.98" width="0.1524" layer="91" grouprefs="VCA"/>
 <wire x1="576.58" y1="93.98" x2="581.66" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -13107,10 +13176,10 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <wire x1="708.66" y1="66.04" x2="708.66" y2="55.88" width="0.1524" layer="91" grouprefs="VCA"/>
 <pinref part="VCA_TRIM1" gate="G$1" pin="E"/>
 <wire x1="708.66" y1="55.88" x2="690.88" y2="55.88" width="0.1524" layer="91" grouprefs="VCA"/>
-<label x="690.88" y="-15.24" size="1.778" layer="95"/>
+<label x="690.88" y="-17.78" size="1.778" layer="95" grouprefs="VCA"/>
 <pinref part="R40" gate="G$1" pin="2"/>
-<wire x1="690.88" y1="55.88" x2="690.88" y2="43.18" width="0.1524" layer="91"/>
-<junction x="690.88" y="55.88"/>
+<wire x1="690.88" y1="55.88" x2="690.88" y2="43.18" width="0.1524" layer="91" grouprefs="VCA"/>
+<junction x="690.88" y="55.88" grouprefs="VCA"/>
 </segment>
 </net>
 <net name="N$47" class="0">
@@ -13126,7 +13195,29 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <net name="N$50" class="0">
 <segment>
 <pinref part="R40" gate="G$1" pin="1"/>
-<wire x1="690.88" y1="33.02" x2="690.88" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="690.88" y1="33.02" x2="690.88" y2="-15.24" width="0.1524" layer="91" grouprefs="VCA"/>
+</segment>
+</net>
+<net name="N$51" class="0">
+<segment>
+<pinref part="PSOC_IDAC" gate="-1" pin="1"/>
+<pinref part="U$7" gate="G$1" pin="AMP_BIAS_1"/>
+<wire x1="723.9" y1="-15.24" x2="723.9" y2="63.5" width="0.1524" layer="91" grouprefs="VCA"/>
+</segment>
+</net>
+<net name="N$54" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="EN"/>
+<wire x1="33.02" y1="53.34" x2="2.54" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="PSOC_LOGIC" gate="-1" pin="1"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="A0"/>
+<wire x1="33.02" y1="60.96" x2="33.02" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="PSOC_LOGIC" gate="-3" pin="1"/>
+<wire x1="33.02" y1="63.5" x2="2.54" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
