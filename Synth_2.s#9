@@ -11399,7 +11399,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinmap gate="G$1" pin="2" pinorder="2"/>
 </pinmapping>
 </spice>
-<attribute name="SPICEPREFIX" value="10K"/>
+<attribute name="SPICEPREFIX" value="1K"/>
 </part>
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-024X044" package3d_urn="urn:adsk.eagle:package:23630/1">
 <spice>
@@ -11408,7 +11408,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinmap gate="G$1" pin="2" pinorder="2"/>
 </pinmapping>
 </spice>
-<attribute name="SPICEPREFIX" value="1nF"/>
+<attribute name="SPICEPREFIX" value="10nF"/>
 </part>
 <part name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="0204/7" package3d_urn="urn:adsk.eagle:package:23498/2">
 <spice>
@@ -12075,10 +12075,10 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <attribute name="VALUE" x="488.95" y="85.598" size="1.778" layer="96"/>
 <attribute name="SPICEPREFIX" x="490.22" y="86.36" size="1.778" layer="96"/>
 </instance>
-<instance part="GLOBAL_FILTER_CUTOFF" gate="-1" x="487.68" y="-17.78" smashed="yes" rot="R270" grouprefs="FILTER_CUTOFF FILTER">
+<instance part="GLOBAL_FILTER_CUTOFF" gate="-1" x="487.68" y="-17.78" smashed="yes" rot="R270" grouprefs="FILTER FILTER_CUTOFF">
 <attribute name="NAME" x="487.045" y="-21.336" size="1.778" layer="95" rot="R270"/>
 </instance>
-<instance part="GLOBAL_FILTER_CUTOFF" gate="-2" x="482.6" y="-17.78" smashed="yes" rot="R270" grouprefs="FILTER_CUTOFF FILTER">
+<instance part="GLOBAL_FILTER_CUTOFF" gate="-2" x="482.6" y="-17.78" smashed="yes" rot="R270" grouprefs="FILTER FILTER_CUTOFF">
 <attribute name="NAME" x="481.965" y="-21.336" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="479.298" y="-16.764" size="1.778" layer="96" rot="R270"/>
 </instance>

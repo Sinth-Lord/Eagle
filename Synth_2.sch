@@ -11331,6 +11331,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <schematic_group name="PSOC_CURRENT_DAC" grouprefs="VCA"/>
 <schematic_group name="VCA"/>
 <schematic_group name="OSCILLATOR"/>
+<schematic_group name="RESONANCE_CONTROL"/>
 </groups>
 <parts>
 <part name="IC1" library="maxim" library_urn="urn:adsk.eagle:library:269" deviceset="DG409DJ" device="" package3d_urn="urn:adsk.eagle:package:922/2"/>
@@ -11552,7 +11553,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinmap gate="G$1" pin="2" pinorder="2"/>
 </pinmapping>
 </spice>
-<attribute name="SPICEPREFIX" value="10K"/>
+<attribute name="SPICEPREFIX" value="5K"/>
 </part>
 <part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="025-024X044" package3d_urn="urn:adsk.eagle:package:23630/1">
 <spice>
@@ -11795,6 +11796,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 </spice>
 <attribute name="SPICEPREFIX" value="1.5nF"/>
 </part>
+<part name="FILTER_RESONANCE" library="con-phoenix-254" library_urn="urn:adsk.eagle:library:172" deviceset="MPT2" device="" package3d_urn="urn:adsk.eagle:package:9320/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -12187,6 +12189,13 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <attribute name="NAME" x="231.521" y="46.736" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="227.076" y="52.959" size="1.778" layer="96" rot="R180"/>
 <attribute name="SPICEPREFIX" x="231.14" y="53.34" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="FILTER_RESONANCE" gate="-1" x="365.76" y="-12.7" smashed="yes" rot="R270" grouprefs="RESONANCE_CONTROL">
+<attribute name="NAME" x="365.125" y="-16.256" size="1.778" layer="95" rot="R270"/>
+</instance>
+<instance part="FILTER_RESONANCE" gate="-2" x="363.22" y="-12.7" smashed="yes" rot="R270" grouprefs="RESONANCE_CONTROL">
+<attribute name="NAME" x="362.585" y="-16.256" size="1.778" layer="95" rot="R270"/>
+<attribute name="VALUE" x="359.918" y="-11.684" size="1.778" layer="96" rot="R270"/>
 </instance>
 </instances>
 <busses>
@@ -12797,15 +12806,16 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinref part="FILTER_TRIM" gate="G$1" pin="E"/>
 <wire x1="358.14" y1="48.26" x2="365.76" y2="48.26" width="0.1524" layer="91" grouprefs="FILTER"/>
 <wire x1="365.76" y1="48.26" x2="365.76" y2="60.96" width="0.1524" layer="91" grouprefs="FILTER"/>
-<pinref part="R20" gate="G$1" pin="2"/>
 <wire x1="358.14" y1="48.26" x2="358.14" y2="43.18" width="0.1524" layer="91" grouprefs="FILTER"/>
-<wire x1="358.14" y1="43.18" x2="368.3" y2="43.18" width="0.1524" layer="91" grouprefs="FILTER"/>
+<wire x1="358.14" y1="43.18" x2="363.22" y2="43.18" width="0.1524" layer="91" grouprefs="FILTER"/>
 <junction x="358.14" y="48.26" grouprefs="FILTER"/>
 <pinref part="R21" gate="G$1" pin="2"/>
 <wire x1="358.14" y1="43.18" x2="358.14" y2="35.56" width="0.1524" layer="91" grouprefs="FILTER"/>
 <wire x1="358.14" y1="35.56" x2="368.3" y2="35.56" width="0.1524" layer="91" grouprefs="FILTER"/>
 <junction x="358.14" y="43.18" grouprefs="FILTER"/>
 <pinref part="U$4" gate="G$1" pin="+IN_1"/>
+<pinref part="FILTER_RESONANCE" gate="-2" pin="1"/>
+<wire x1="363.22" y1="-10.16" x2="363.22" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$22" class="0">
@@ -13231,6 +13241,14 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinref part="OSC_SUM_TRIM" gate="G$1" pin="S"/>
 <wire x1="109.22" y1="114.3" x2="109.22" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="104.14" x2="96.52" y2="104.14" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$55" class="0">
+<segment>
+<pinref part="R20" gate="G$1" pin="2"/>
+<wire x1="365.76" y1="43.18" x2="368.3" y2="43.18" width="0.1524" layer="91" grouprefs="FILTER"/>
+<pinref part="FILTER_RESONANCE" gate="-1" pin="1"/>
+<wire x1="365.76" y1="-10.16" x2="365.76" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

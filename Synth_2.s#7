@@ -12478,7 +12478,7 @@ Source: http://www.bourns.com/data/global/PDFs/3223.PDF</description>
 <pinref part="IC1" gate="G$1" pin="V+"/>
 <wire x1="60.96" y1="129.54" x2="88.9" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="129.54" x2="218.44" y2="129.54" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="63.5" x2="60.96" y2="63.5" width="0.1524" layer="91" grouprefs="OSCILLATOR OSCILLATOR"/>
+<wire x1="58.42" y1="63.5" x2="60.96" y2="63.5" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <wire x1="60.96" y1="63.5" x2="60.96" y2="129.54" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
 <junction x="60.96" y="129.54"/>
 <wire x1="73.66" y1="81.28" x2="88.9" y2="81.28" width="0.1524" layer="91" grouprefs="OSCILLATOR"/>
